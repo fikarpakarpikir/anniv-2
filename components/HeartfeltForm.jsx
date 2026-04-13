@@ -82,7 +82,7 @@ export default function HeartfeltForm({ onFinale }) {
   const allFilled = steps.every((s) => answers[s.id]?.trim());
 
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-ivory-dark to-ivory relative overflow-hidden">
+    <section className="py-24 px-4 bg-linear-to-b from-ivory-dark to-ivory relative overflow-hidden">
       {/* BG decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 right-10 w-48 h-48 rounded-full bg-pink-light opacity-15 blur-3xl" />
@@ -137,18 +137,18 @@ export default function HeartfeltForm({ onFinale }) {
             >
               {/* Step header */}
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-light to-pink flex items-center justify-center text-3xl flex-shrink-0">
+                <div className="w-14 h-14 rounded-2xl bg-linear-to-br from-pink-light to-pink flex items-center justify-center text-3xl shrink-0">
                   {step.emoji}
                 </div>
                 <div>
                   <div className="text-xs text-gold tracking-widest uppercase font-inter mb-1">
                     Langkah {step.step} dari {steps.length}
                   </div>
-                  <h3 className="font-playfair text-2xl font-semibold text-[var(--text-dark)]">{step.title}</h3>
+                  <h3 className="font-playfair text-2xl font-semibold text-(--text-dark)">{step.title}</h3>
                 </div>
               </div>
 
-              <p className="font-inter text-[var(--text-mid)] text-sm mb-5 leading-relaxed">
+              <p className="font-inter text-(--text-mid) text-sm mb-5 leading-relaxed">
                 {step.subtitle}
               </p>
 
@@ -158,7 +158,7 @@ export default function HeartfeltForm({ onFinale }) {
                   onChange={(e) => handleChange(step.id, e.target.value)}
                   placeholder={step.placeholder}
                   rows={5}
-                  className="w-full rounded-2xl border border-gold-light/30 bg-ivory p-4 font-inter text-sm text-[var(--text-dark)] resize-none focus:outline-none focus:border-gold/50 focus:ring-2 focus:ring-gold/10 transition-all placeholder:text-[var(--text-mid)]/40"
+                  className="w-full rounded-2xl border border-gold-light/30 bg-ivory p-4 font-inter text-sm text-(--text-dark) resize-none focus:outline-none focus:border-gold/50 focus:ring-2 focus:ring-gold/10 transition-all placeholder:text-(--text-mid)/40"
                 />
                 {saved && (
                   <motion.div
@@ -179,7 +179,7 @@ export default function HeartfeltForm({ onFinale }) {
             <button
               onClick={handlePrev}
               disabled={currentStep === 0}
-              className="flex items-center gap-2 px-5 py-2 rounded-full border border-gold-light/40 text-[var(--text-mid)] text-sm font-inter hover:bg-ivory transition-colors disabled:opacity-30 disabled:pointer-events-none"
+              className="flex items-center gap-2 px-5 py-2 rounded-full border border-gold-light/40 text-(--text-mid) text-sm font-inter hover:bg-ivory transition-colors disabled:opacity-30 disabled:pointer-events-none"
             >
               ← Kembali
             </button>
@@ -187,7 +187,7 @@ export default function HeartfeltForm({ onFinale }) {
             {currentStep < steps.length - 1 ? (
               <button
                 onClick={handleNext}
-                className="flex items-center gap-2 px-6 py-2 rounded-full bg-gradient-to-r from-gold to-gold-light text-white text-sm font-inter font-medium hover:shadow-md transition-all"
+                className="flex items-center gap-2 px-6 py-2 rounded-full bg-linear-to-r from-gold to-gold-light text-white text-sm font-inter font-medium hover:shadow-md transition-all"
               >
                 Lanjut →
               </button>
@@ -196,7 +196,7 @@ export default function HeartfeltForm({ onFinale }) {
                 onClick={onFinale}
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
-                className="glow-btn flex items-center gap-2 px-7 py-2.5 rounded-full bg-gradient-to-r from-pink-dark via-pink to-pink-light text-white text-sm font-inter font-semibold"
+                className="glow-btn flex items-center gap-2 px-7 py-2.5 rounded-full bg-linear-to-r from-pink-dark via-pink to-pink-light text-white text-sm font-inter font-semibold"
               >
                 Selesai 🎉
               </motion.button>
@@ -204,8 +204,8 @@ export default function HeartfeltForm({ onFinale }) {
           </div>
         </div>
 
-        <p className="text-center text-xs font-inter text-[var(--text-mid)] mt-4 opacity-60">
-          📱 Semua jawaban tersimpan otomatis di perangkatmu
+        <p className="text-center text-xs font-inter text-(--text-mid) mt-4 opacity-60">
+          📱 Tenang, semua jawaban aman gabakal ilang ko
         </p>
       </div>
     </section>

@@ -29,11 +29,11 @@ export default function Finale({ show, onClose }) {
             {/* Icon */}
             <div className="text-6xl mb-4">💝</div>
 
-            <h3 className="font-playfair text-3xl font-semibold text-[var(--text-dark)] mb-3">
+            <h3 className="font-playfair text-3xl font-semibold text-(--text-dark) mb-3">
               Kamu sekarang bahagia, Bunda?
             </h3>
 
-            <p className="font-inter text-[var(--text-mid)] text-sm mb-8 leading-relaxed">
+            <p className="font-inter text-(--text-mid) text-sm mb-8 leading-relaxed">
               Dari lubuk hati yang paling dalam, aku ingin tahu...
             </p>
 
@@ -42,7 +42,7 @@ export default function Finale({ show, onClose }) {
                 onClick={handleYes}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="glow-btn flex-1 py-3 rounded-2xl bg-gradient-to-r from-gold to-gold-light text-white font-playfair text-lg font-semibold"
+                className="glow-btn flex-1 py-3 rounded-2xl bg-linear-to-r from-gold to-gold-light text-white font-playfair text-lg font-semibold"
               >
                 Ya 💛
               </motion.button>
@@ -58,7 +58,7 @@ export default function Finale({ show, onClose }) {
 
             <button
               onClick={onClose}
-              className="mt-5 text-xs text-[var(--text-mid)]/50 font-inter hover:text-[var(--text-mid)] transition-colors"
+              className="mt-5 text-xs text-(--text-mid)/50 font-inter hover:text-(--text-mid) transition-colors"
             >
               ← Kembali
             </button>
@@ -74,7 +74,7 @@ export default function Finale({ show, onClose }) {
           className="fixed inset-0 z-50 flex items-center justify-center"
         >
           {/* Background - wedding photo placeholder */}
-          <div className="absolute inset-0 bg-gradient-to-br from-pink-dark/80 via-[#3D1A28] to-[#1A0D14]">
+          <div className="absolute inset-0 bg-linear-to-br from-pink-dark/80 via-[#3D1A28] to-[#1A0D14]">
             {/* Decorative elements simulating a wedding photo */}
             <div className="absolute inset-0 flex items-center justify-center opacity-20">
               <div className="text-center">
@@ -115,9 +115,9 @@ export default function Finale({ show, onClose }) {
               transition={{ delay: 1, duration: 0.8 }}
               className="flex items-center justify-center gap-3 mb-8"
             >
-              <div className="h-px w-20 bg-gradient-to-r from-transparent to-gold-light" />
+              <div className="h-px w-20 bg-linear-to-r from-transparent to-gold-light" />
               <span className="text-gold text-lg">✦</span>
-              <div className="h-px w-20 bg-gradient-to-l from-transparent to-gold-light" />
+              <div className="h-px w-20 bg-linear-to-l from-transparent to-gold-light" />
             </motion.div>
 
             <motion.p
@@ -127,7 +127,7 @@ export default function Finale({ show, onClose }) {
               className="font-playfair text-xl md:text-2xl lg:text-3xl leading-relaxed font-medium"
               style={{ color: '#F5E6C8' }}
             >
-              Terima kasih bunda, dari 2 tahun kemarin, hari ini, dan seterusnya,{' '}
+              Terima kasih sayang, dari 2 tahun kemarin, hari ini, dan seterusnya,{' '}
               <span style={{ color: '#E8C97A' }}>
                 kamu wanita hebat yang membuat keluarga kita terus hangat.
               </span>

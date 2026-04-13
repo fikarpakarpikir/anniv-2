@@ -62,7 +62,7 @@ const stats = [
 
 export default function NumbersSection() {
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-ivory to-ivory-dark relative overflow-hidden">
+    <section className="py-24 px-4 bg-linear-to-b from-ivory to-ivory-dark relative overflow-hidden">
       {/* BG decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-10 left-10 w-64 h-64 rounded-full bg-pink-light opacity-10 blur-3xl" />
@@ -110,15 +110,15 @@ export default function NumbersSection() {
                 </div>
 
                 {/* Label */}
-                <h3 className="font-playfair text-xl text-[var(--text-dark)] mb-3 font-semibold">
+                <h3 className="font-playfair text-xl text-(--text-dark) mb-3 font-semibold">
                   {stat.label}
                 </h3>
 
                 {/* Divider */}
-                <div className="w-12 h-px bg-gradient-to-r from-transparent via-pink to-transparent mx-auto mb-3" />
+                <div className="w-12 h-px bg-linear-to-r from-transparent via-pink to-transparent mx-auto mb-3" />
 
                 {/* Description */}
-                <p className="font-inter text-sm text-[var(--text-mid)] leading-relaxed">
+                <p className="font-inter text-sm text-(--text-mid) leading-relaxed">
                   {stat.desc}
                 </p>
 

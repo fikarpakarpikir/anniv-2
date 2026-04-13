@@ -1,28 +1,29 @@
 'use client'
 import { motion } from 'framer-motion';
+import { PhotoSlot } from './PhotoSlot';
 
 const memories = [
-  { id: 1, label: 'Hari Pertama Kita', emoji: '💑' },
-  { id: 2, label: 'Liburan Bersama', emoji: '🌊' },
-  { id: 3, label: 'Momen Spesial', emoji: '🌹' },
-  { id: 4, label: 'Kebersamaan Kita', emoji: '🏠' },
-  { id: 5, label: 'Kenangan Indah', emoji: '⭐' },
+  { id: 1, label: 'Momen Pertama Kita', emoji: '/foto/1/1.jpg' },
+  { id: 2, label: 'Liburan Bersama', emoji: '/foto/1/2.png' },
+  { id: 3, label: 'Momen Spesial', emoji: '/foto/1/3.jpg' },
+  { id: 4, label: 'Kebersamaan Kita', emoji: '/foto/1/4.jpg' },
+  { id: 5, label: 'Kenangan Indah', emoji: '/foto/1/5.JPEG' },
 ];
 
 const praises = [
   {
-    text: 'Kamu adalah sinar matahari yang selalu menerangi hariku, Bunda. Senyummu adalah alasan terbaik untuk bangun pagi.',
-    attr: '— dari hati suamimu',
+    text: 'Saat itu hanya menjadi keinginan bahwa sosok pendamping hidup itu kaya kamu. Dan ternyata Allah wujudkan itu.',
+    attr: '— untuk wanita shalihah',
     from: 'left',
   },
   {
-    text: 'Dua tahun bukan waktu yang lama, tapi bersamamu terasa seperti seumur hidup yang ingin kuulang terus-terus.',
+    text: 'Dua tahun bukan waktu yang lama, tapi bersamamu terasa seperti seumur hidup yang ingin kuulang terus.',
     attr: '— untuk wanita terhebatku',
     from: 'right',
   },
   {
     text: 'Kamu bukan hanya istriku, Bunda. Kamu adalah rumahku, sahabatku, dan cinta terbesarku.',
-    attr: '— selamanya, suamimu',
+    attr: '— in love of life, suamimu',
     from: 'left',
   },
 ];
@@ -45,15 +46,16 @@ function PhotoPlaceholder({ label, emoji, index }) {
       className="relative w-full overflow-hidden rounded-3xl shadow-xl"
       style={{ height: 'clamp(300px, 50vw, 520px)' }}
     >
-      <div className={`w-full h-full bg-gradient-to-br ${colors[index % colors.length]} flex flex-col items-center justify-center`}>
-        <span className="text-8xl mb-4">{emoji}</span>
-        <span className="font-playfair text-white/80 text-xl font-medium tracking-wide drop-shadow-md">{label}</span>
+      <div className={`w-full h-full bg-linear-to-br ${colors[index % colors.length]} flex flex-col items-center justify-center`}>
+        <PhotoSlot src={emoji} alt={label}/>
+        {/* <span className="text-8xl mb-4">{emoji}</span> */}
+        {/* <span className="font-playfair text-white/80 text-xl font-medium tracking-wide drop-shadow-md">{label}</span> */}
         <span className="font-inter text-white/50 text-xs mt-2 tracking-widest uppercase">Foto #{index + 1}</span>
       </div>
       {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/30 via-transparent to-transparent" />
       <div className="absolute bottom-6 left-6 right-6">
-        <div className="h-px bg-gradient-to-r from-white/40 to-transparent mb-3" />
+        <div className="h-px bg-linear-to-r from-white/40 to-transparent mb-3" />
         <span className="font-playfair text-white text-sm italic">{label}</span>
       </div>
     </motion.div>
@@ -76,17 +78,17 @@ function PraiseCard({ text, attr, from, index }) {
         {/* Quote mark */}
         <span className="font-playfair text-6xl text-pink-light/60 leading-none absolute top-4 left-5">&quot;</span>
 
-        <p className="font-playfair italic text-[var(--text-dark)] text-lg leading-relaxed relative z-10 mt-4">
+        <p className="font-playfair italic text-(--text-dark) text-lg leading-relaxed relative z-10 mt-4">
           {text}
         </p>
 
         <div className="mt-4 flex items-center gap-2">
-          <div className="h-px flex-1 bg-gradient-to-r from-pink-light to-transparent" />
+          <div className="h-px flex-1 bg-linear-to-r from-pink-light to-transparent" />
           <span className="text-xs font-inter text-gold tracking-wide">{attr}</span>
         </div>
 
         {/* Corner rose */}
-        <span className="absolute bottom-4 right-5 text-pink-light text-xl">🌸</span>
+        <span className="absolute bottom-2 right-5 text-pink-light text-xl">🌸</span>
       </div>
     </motion.div>
   );

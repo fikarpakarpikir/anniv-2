@@ -35,7 +35,7 @@ function MiniGallery({ movie, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className={`relative bg-gradient-to-br ${movie.gradient} h-48 flex flex-col items-center justify-center`}>
+        <div className={`relative bg-linear-to-br ${movie.gradient} h-48 flex flex-col items-center justify-center`}>
           <span className="text-6xl mb-2">{movie.emoji}</span>
           <h3 className="font-playfair text-white text-2xl font-bold drop-shadow">{movie.title}</h3>
           <p className="font-inter text-white/80 text-sm">{movie.subtitle} · {movie.year}</p>
@@ -49,7 +49,7 @@ function MiniGallery({ movie, onClose }) {
 
         {/* Mini gallery grid */}
         <div className="p-6">
-          <p className="font-inter text-xs text-[var(--text-mid)] tracking-widest uppercase mb-4">
+          <p className="font-inter text-xs text-(--text-mid) tracking-widest uppercase mb-4">
             {movie.photos} Foto dari Kenangan Ini
           </p>
           <div className="grid grid-cols-3 gap-3">
@@ -59,13 +59,13 @@ function MiniGallery({ movie, onClose }) {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.08 }}
-                className={`rounded-2xl overflow-hidden aspect-square bg-gradient-to-br ${movie.gradient} opacity-${70 + i * 5} flex items-center justify-center`}
+                className={`rounded-2xl overflow-hidden aspect-square bg-linear-to-br ${movie.gradient} opacity-${70 + i * 5} flex items-center justify-center`}
               >
                 <span className="text-3xl">{photoEmojis[(i + movie.id) % photoEmojis.length]}</span>
               </motion.div>
             ))}
           </div>
-          <p className="font-playfair italic text-[var(--text-mid)] text-sm text-center mt-5">
+          <p className="font-playfair italic text-(--text-mid) text-sm text-center mt-5">
             &quot;Setiap foto menyimpan sejuta kenangan indah&quot; 🌸
           </p>
         </div>
@@ -78,7 +78,7 @@ export default function NetflixSection() {
   const [selected, setSelected] = useState(null);
 
   return (
-    <section className="py-24 bg-gradient-to-b from-[#1a0a0f] to-[#0d0508] overflow-hidden">
+    <section className="py-24 bg-linear-to-b from-[#1a0a0f] to-[#0d0508] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -94,9 +94,9 @@ export default function NetflixSection() {
                 Our <span className="text-pink">Love</span> Collection
               </h2>
             </div>
-            <span className="text-[var(--text-mid)] text-xs font-inter hidden md:block">Klik poster untuk melihat galeri</span>
+            <span className="text-(--text-mid) text-xs font-inter hidden md:block">Klik poster untuk melihat galeri</span>
           </div>
-          <div className="h-px w-full bg-gradient-to-r from-pink/40 via-gold/20 to-transparent mt-4" />
+          <div className="h-px w-full bg-linear-to-r from-pink/40 via-gold/20 to-transparent mt-4" />
         </motion.div>
 
         {/* Slider */}
@@ -111,11 +111,11 @@ export default function NetflixSection() {
                 transition={{ delay: i * 0.06 }}
                 whileHover={{ scale: 1.06, y: -8 }}
                 onClick={() => setSelected(movie)}
-                className="relative flex-shrink-0 w-36 md:w-44 rounded-2xl overflow-hidden shadow-2xl group"
+                className="relative shrink-0 w-36 md:w-44 rounded-2xl overflow-hidden shadow-2xl group"
                 style={{ aspectRatio: '2/3' }}
               >
                 {/* Poster */}
-                <div className={`w-full h-full bg-gradient-to-br ${movie.gradient} flex flex-col items-center justify-center p-4`}>
+                <div className={`w-full h-full bg-linear-to-br ${movie.gradient} flex flex-col items-center justify-center p-4`}>
                   <span className="text-5xl mb-3">{movie.emoji}</span>
                   <h4 className="font-playfair text-white text-center text-sm font-bold leading-tight">{movie.title}</h4>
                   <p className="font-inter text-white/70 text-[10px] mt-1 text-center">{movie.subtitle}</p>

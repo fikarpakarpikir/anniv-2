@@ -123,10 +123,10 @@ export default function Home() {
           >
             <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden">
               <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-pink-light opacity-15 blur-3xl" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-150 rounded-full bg-pink-light opacity-15 blur-3xl" />
                 <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-gold-champagne opacity-20 blur-3xl" />
               </div>
-              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent" />
+              <div className="absolute top-0 inset-x-0 h-1 bg-linear-to-r from-transparent via-gold to-transparent" />
 
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
@@ -135,11 +135,11 @@ export default function Home() {
                 className="relative z-10 max-w-3xl"
               >
                 <div className="flex items-center justify-center gap-3 mb-6">
-                  <div className="h-px w-14 bg-gradient-to-r from-transparent to-gold-light" />
+                  <div className="h-px w-14 bg-linear-to-r from-transparent to-gold-light" />
                   <span className="text-gold text-xs tracking-[0.5em] uppercase font-inter">
                     14 April 2024 — 14 April 2026
                   </span>
-                  <div className="h-px w-14 bg-gradient-to-l from-transparent to-gold-light" />
+                  <div className="h-px w-14 bg-linear-to-l from-transparent to-gold-light" />
                 </div>
 
                 <h1 className="font-playfair text-6xl md:text-8xl font-bold leading-tight gold-gradient">
@@ -162,15 +162,15 @@ export default function Home() {
                   transition={{ delay: 0.9 }}
                   className="font-inter text-[#6B4E4E] text-lg leading-relaxed max-w-xl mx-auto"
                 >
-                  Dua tahun sudah kita lalui bersama. Setiap hari bersamamu
-                  adalah anugerah terbesar yang pernah Allah berikan padaku.
+                  Dua tahun sudah kita lewatin semuanya bareng. Setiap hari bareng terus
+                  adalah rasa syukur terbesar yang pernah Allah kasih.
                 </motion.p>
 
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.3 }}
-                  className="mt-10"
+                  className="mt-40"
                 >
                   <a
                     href="#journey"

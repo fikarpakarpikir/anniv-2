@@ -44,7 +44,7 @@ export default function HeartCursor() {
       style={{ x: springX, y: springY }}
       animate={clicked ? { scale: 1.8 } : { scale: 1 }}
       transition={clicked ? { type: 'spring', stiffness: 400, damping: 10 } : { type: 'spring', stiffness: 300 }}
-      className="fixed top-0 left-0 z-[9999] pointer-events-none"
+      className="fixed top-0 left-0 z-9999 pointer-events-none"
     >
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path

@@ -60,9 +60,9 @@ export default function TimeGate({ onReveal }) {
         className="text-center mb-8"
       >
         <div className="inline-flex items-center gap-3 mb-4">
-          <div className="h-px w-16 bg-gradient-to-r from-transparent to-gold-light" />
+          <div className="h-px w-16 bg-linear-to-r from-transparent to-gold-light" />
           <span className="text-gold text-sm tracking-[0.4em] uppercase font-inter font-light">2nd Anniversary</span>
-          <div className="h-px w-16 bg-gradient-to-l from-transparent to-gold-light" />
+          <div className="h-px w-16 bg-linear-to-l from-transparent to-gold-light" />
         </div>
         <h1 className="font-playfair text-5xl md:text-7xl gold-gradient font-semibold leading-tight">
           Buat Bunda
@@ -82,7 +82,7 @@ export default function TimeGate({ onReveal }) {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <p className="font-inter text-[var(--text-mid)] text-base md:text-lg mb-8 max-w-md mx-auto leading-relaxed">
+            <p className="font-inter text-(--text-mid) text-base md:text-lg mb-8 max-w-md mx-auto leading-relaxed">
               Sabar ya, lagi disiapin dulu...
             </p>
 
@@ -109,7 +109,7 @@ export default function TimeGate({ onReveal }) {
                       </motion.span>
                     </AnimatePresence>
                   </div>
-                  <span className="text-[10px] md:text-xs text-[var(--text-mid)] mt-2 tracking-widest uppercase font-inter">
+                  <span className="text-[10px] md:text-xs text-(--text-mid) mt-2 tracking-widest uppercase font-inter">
                     {label}
                   </span>
                 </div>
@@ -129,8 +129,8 @@ export default function TimeGate({ onReveal }) {
             transition={{ duration: 0.8, type: 'spring' }}
             className="text-center"
           >
-            <p className="font-playfair italic text-[var(--text-mid)] text-lg mb-8">
-              Saatnya membuka hadiah spesialmu, Bunda ✨
+            <p className="font-playfair italic text-(--text-mid) text-lg mb-8">
+              Dibuka ya sayang ✨
             </p>
             <motion.button
               onClick={onReveal}
@@ -154,7 +154,7 @@ export default function TimeGate({ onReveal }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        className="absolute bottom-8 text-center text-[var(--text-mid)] text-sm font-inter"
+        className="absolute bottom-8 text-center text-(--text-mid) text-sm font-inter"
       >
         <span className="text-gold opacity-60">❧</span>
         <span className="block mt-1 text-xs tracking-widest opacity-50 uppercase">14 April 2024 — 14 April 2026</span>
