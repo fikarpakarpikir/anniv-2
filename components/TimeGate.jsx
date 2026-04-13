@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// const TARGET_DATE = new Date('2026-04-14T00:00:00');
-const TARGET_DATE = new Date('2026-04-13T00:00:00');
+const TARGET_DATE = new Date('2026-04-14T00:00:00');
+// const TARGET_DATE = new Date('2026-04-13T00:00:00');
 
 function pad(n) {
   return String(n).padStart(2, '0');
@@ -83,7 +83,7 @@ export default function TimeGate({ onReveal }) {
             className="text-center"
           >
             <p className="font-inter text-(--text-mid) text-base md:text-lg mb-8 max-w-md mx-auto leading-relaxed">
-              Sabar ya, lagi disiapin dulu...
+              Sabar ya, tinggal tunggu...
             </p>
 
             {/* Countdown boxes */}

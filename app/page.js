@@ -90,7 +90,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-white text-gray-600">
+    <div className="bg-white text-gray-600 w-screen overflow-hidden">
       <Head>
         <title>Happy 2nd Anniversary Bunda 💕</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -136,7 +136,7 @@ export default function Home() {
               >
                 <div className="flex items-center justify-center gap-3 mb-6">
                   <div className="h-px w-14 bg-linear-to-r from-transparent to-gold-light" />
-                  <span className="text-gold text-xs tracking-[0.5em] uppercase font-inter">
+                  <span className="text-gold text-xs tracking-widest uppercase font-inter">
                     14 April 2024 — 14 April 2026
                   </span>
                   <div className="h-px w-14 bg-linear-to-l from-transparent to-gold-light" />
@@ -149,7 +149,7 @@ export default function Home() {
                   2nd Anniversary
                 </h1>
                 <h2 className="font-playfair italic text-4xl md:text-5xl mt-2 text-[#6B4E4E]">
-                  Bunda 💕
+                  Sayang 💕
                 </h2>
 
                 <div className="floral-divider my-8 max-w-sm mx-auto">
@@ -160,7 +160,7 @@ export default function Home() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.9 }}
-                  className="font-inter text-[#6B4E4E] text-lg leading-relaxed max-w-xl mx-auto"
+                  className="font-playfair text-[#6B4E4E] text-lg leading-relaxed max-w-xl mx-auto"
                 >
                   Dua tahun sudah kita lewatin semuanya bareng. Setiap hari bareng terus
                   adalah rasa syukur terbesar yang pernah Allah kasih.
@@ -176,7 +176,7 @@ export default function Home() {
                     href="#journey"
                     className="inline-flex items-center gap-2 text-gold text-sm font-inter tracking-widest uppercase hover:gap-3 transition-all"
                   >
-                    Scroll untuk kenangan
+                    Scroll
                     <motion.span
                       animate={{ y: [0, 6, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity }}
