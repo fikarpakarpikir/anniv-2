@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import { PhotoSlot } from './PhotoSlot';
 
 const memories = [
-  { id: 1, label: 'Momen Pertama Kita', emoji: '/foto/1/1.jpg' },
-  { id: 2, label: 'Liburan Bersama', emoji: '/foto/1/2.png' },
-  { id: 3, label: 'Momen Spesial', emoji: '/foto/1/3.jpg' },
-  { id: 4, label: 'Kebersamaan Kita', emoji: '/foto/1/4.jpg' },
-  { id: 5, label: 'Kenangan Indah', emoji: '/foto/1/5.JPEG' },
+  { id: 1, label: 'Momen Pertama Kita', emoji: '/compress/root/1.jpg' },
+  { id: 2, label: 'Liburan Bersama', emoji: '/compress/root/2.png' },
+  { id: 3, label: 'Momen Spesial', emoji: '/compress/root/3.jpg' },
+  { id: 4, label: 'Kebersamaan Kita', emoji: '/compress/root/4.jpg' },
+  { id: 5, label: 'Kenangan Indah', emoji: '/compress/root/5.JPEG' },
 ];
 
 const praises = [
@@ -46,7 +46,7 @@ function PhotoPlaceholder({ label, emoji, index }) {
       className="relative w-full overflow-hidden rounded-3xl shadow-xl"
       style={{ height: 'clamp(300px, 50vw, 520px)' }}
     >
-      <div className={`w-full h-full bg-linear-to-br ${colors[index % colors.length]} flex flex-col items-center justify-center`}>
+      <div className={`w-full h-full bg-linear-to-br ${colors[index % colors.length]} flex flex-col items-center justify-center relative`}>
         <PhotoSlot src={emoji} alt={label}/>
         {/* <span className="text-8xl mb-4">{emoji}</span> */}
         {/* <span className="font-playfair text-white/80 text-xl font-medium tracking-wide drop-shadow-md">{label}</span> */}

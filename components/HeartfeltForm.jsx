@@ -196,7 +196,7 @@ export default function HeartfeltForm({ onFinale }) {
                 onClick={onFinale}
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
-                className="glow-btn flex items-center gap-2 px-7 py-2.5 rounded-full bg-linear-to-r from-pink-dark via-pink to-pink-light text-white text-sm font-inter font-semibold"
+                className="flex items-center gap-2 px-7 py-2.5 rounded-full bg-linear-to-r from-pink-400 to-pink-900 text-white text-sm font-inter font-semibold"
               >
                 Selesai 🎉
               </motion.button>
