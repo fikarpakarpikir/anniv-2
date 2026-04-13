@@ -1,65 +1,229 @@
-import Image from "next/image";
+"use client"
+
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import dynamic from "next/dynamic";
+import Head from "next/head";
+
+import TimeGate from "@/components/TimeGate";
+import NumbersSection from "@/components/NumbersSection";
+import MemoriesSection from "@/components/MemoriesSection";
+import NetflixSection from "@/components/NetflixSection";
+import HeartfeltForm from "@/components/HeartfeltForm";
+import Finale from "@/components/Finale";
+import MusicToggle from "@/components/MusicToggle";
+import FloatingPetals from "@/components/FloatingPetals";
+
+const HeartCursor = dynamic(() => import("@/components/HeartCursor"), {
+  ssr: false,
+});
 
 export default function Home() {
+  const [revealed, setRevealed] = useState(false);
+  const [showFinale, setShowFinale] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(false);
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    const audio = new Audio("/lagu/lagu.mp3");
+    audio.loop = true;
+    audio.volume = 0;
+    audioRef.current = audio;
+    return () => {
+      audio.pause();
+      audio.src = "";
+    };
+  }, []);
+
+  const fadeInAudio = (audio) => {
+    let vol = 0;
+    audio.volume = 0;
+    audio.play().catch(() => {});
+    const fade = setInterval(() => {
+      vol = Math.min(vol + 0.02, 0.5);
+      audio.volume = vol;
+      if (vol >= 0.5) clearInterval(fade);
+    }, 100);
+  };
+
+  const handleReveal = async () => {
+    try {
+      const confetti = (await import("canvas-confetti")).default;
+      confetti({
+        particleCount: 180,
+        spread: 90,
+        origin: { y: 0.6 },
+        colors: ["#E8A4B8", "#C9A84C", "#F5D5E0", "#E8C97A", "#ffffff"],
+      });
+      setTimeout(() => {
+        confetti({
+          particleCount: 100,
+          spread: 60,
+          origin: { x: 0.1, y: 0.7 },
+          colors: ["#E8A4B8", "#C9A84C"],
+        });
+        confetti({
+          particleCount: 100,
+          spread: 60,
+          origin: { x: 0.9, y: 0.7 },
+          colors: ["#E8A4B8", "#E8C97A"],
+        });
+      }, 400);
+    } catch (e) {}
+
+    if (audioRef.current) {
+      fadeInAudio(audioRef.current);
+      setMusicPlaying(true);
+    }
+    setRevealed(true);
+  };
+
+  const toggleMusic = () => {
+    if (!audioRef.current) return;
+    if (musicPlaying) {
+      audioRef.current.pause();
+      setMusicPlaying(false);
+    } else {
+      audioRef.current.play().catch(() => {});
+      setMusicPlaying(true);
+    }
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="bg-white text-gray-600">
+      <Head>
+        <title>Happy 2nd Anniversary Bunda 💕</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="Selamat 2 tahun pernikahan kita, Bunda"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </Head>
+
+      <HeartCursor />
+      <FloatingPetals active={revealed} />
+
+      <AnimatePresence mode="wait">
+        {!revealed ? (
+          <motion.div
+            key="timegate"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <TimeGate onReveal={handleReveal} />
+          </motion.div>
+        ) : (
+          <motion.main
+            key="content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="bg-ivory min-h-screen"
           >
-            Documentation
-          </a>
-        </div>
-      </main>
+            <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden">
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-pink-light opacity-15 blur-3xl" />
+                <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-gold-champagne opacity-20 blur-3xl" />
+              </div>
+              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent" />
+
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 1 }}
+                className="relative z-10 max-w-3xl"
+              >
+                <div className="flex items-center justify-center gap-3 mb-6">
+                  <div className="h-px w-14 bg-gradient-to-r from-transparent to-gold-light" />
+                  <span className="text-gold text-xs tracking-[0.5em] uppercase font-inter">
+                    14 April 2024 — 14 April 2026
+                  </span>
+                  <div className="h-px w-14 bg-gradient-to-l from-transparent to-gold-light" />
+                </div>
+
+                <h1 className="font-playfair text-6xl md:text-8xl font-bold leading-tight gold-gradient">
+                  Happy
+                </h1>
+                <h1 className="font-playfair text-5xl md:text-7xl font-semibold leading-tight text-pink-dark">
+                  2nd Anniversary
+                </h1>
+                <h2 className="font-playfair italic text-4xl md:text-5xl mt-2 text-[#6B4E4E]">
+                  Bunda 💕
+                </h2>
+
+                <div className="floral-divider my-8 max-w-sm mx-auto">
+                  <span className="text-pink text-2xl">✿</span>
+                </div>
+
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.9 }}
+                  className="font-inter text-[#6B4E4E] text-lg leading-relaxed max-w-xl mx-auto"
+                >
+                  Dua tahun sudah kita lalui bersama. Setiap hari bersamamu
+                  adalah anugerah terbesar yang pernah Allah berikan padaku.
+                </motion.p>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.3 }}
+                  className="mt-10"
+                >
+                  <a
+                    href="#journey"
+                    className="inline-flex items-center gap-2 text-gold text-sm font-inter tracking-widest uppercase hover:gap-3 transition-all"
+                  >
+                    Scroll untuk kenangan
+                    <motion.span
+                      animate={{ y: [0, 6, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      ↓
+                    </motion.span>
+                  </a>
+                </motion.div>
+              </motion.div>
+
+              <div className="absolute top-8 left-8 text-pink-light opacity-30 text-4xl pointer-events-none select-none">
+                🌸
+              </div>
+              <div className="absolute top-8 right-8 text-pink-light opacity-30 text-4xl pointer-events-none select-none">
+                🌸
+              </div>
+              <div className="absolute bottom-12 left-12 text-gold opacity-20 text-3xl pointer-events-none select-none">
+                ✿
+              </div>
+              <div className="absolute bottom-12 right-12 text-gold opacity-20 text-3xl pointer-events-none select-none">
+                ✿
+              </div>
+            </section>
+
+            <div id="journey">
+              <NumbersSection />
+            </div>
+            <MemoriesSection />
+            <NetflixSection />
+            <HeartfeltForm onFinale={() => setShowFinale(true)} />
+
+            <footer className="py-12 bg-ivory text-center border-t border-gold-light/20">
+              <div className="text-gold text-2xl mb-3">♥</div>
+              <p className="font-playfair italic text-[#6B4E4E] text-lg">
+                &quot;Kamu adalah rumah terhangat yang pernah aku kenal&quot;
+              </p>
+              <p className="font-inter text-xs text-[#6B4E4E] opacity-40 mt-4 tracking-widest uppercase">
+                Made with love · 14 April 2026
+              </p>
+            </footer>
+
+            <MusicToggle isPlaying={musicPlaying} onToggle={toggleMusic} />
+          </motion.main>
+        )}
+      </AnimatePresence>
+
+      <Finale show={showFinale} onClose={() => setShowFinale(false)} />
     </div>
   );
 }
